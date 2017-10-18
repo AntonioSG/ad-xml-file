@@ -10,6 +10,7 @@ package com.ad.xmlfile.test;
  * @author Administrador
  */
 import java.io.File;
+import java.time.LocalDate;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -41,8 +42,9 @@ public class JAXBWrite {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		jaxbMarshaller.marshal(customer, file);
-                jaxbMarshaller.marshal(cliente2, file);
+//                jaxbMarshaller.marshal(cliente2, file);
 		jaxbMarshaller.marshal(customer, System.out);
+                
 
 	      } catch (JAXBException e) {
 		e.printStackTrace();
