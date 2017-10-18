@@ -24,7 +24,7 @@ public class JAXBRead {
 
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		Customer customer = (Customer) jaxbUnmarshaller.unmarshal(file);
-		System.out.println(customer.getId()+" "+customer.getName()+" "+customer.getAge());
+		System.out.println(customer.getId()+" "+customer.getName()+" "+customer.getAge()+" "+customer.getMiCat().getName());
 
 	  } catch (JAXBException e) {
 		e.printStackTrace();

@@ -21,7 +21,16 @@ public class JAXBWrite {
 	  customer.setId(100);
 	  customer.setName("mkyong");
 	  customer.setAge(29);
+          Cat cat=new Cat("Miau");
+          customer.setMiCat(cat);
 
+          Customer cliente2 = new Customer();
+	  customer.setId(200);
+	  customer.setName("pepito");
+	  customer.setAge(49);
+          Cat cat2=new Cat("Guau");
+          customer.setMiCat(cat2);
+          
 	  try {
 
 		File file = new File("customers.xml");
@@ -32,6 +41,7 @@ public class JAXBWrite {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		jaxbMarshaller.marshal(customer, file);
+                jaxbMarshaller.marshal(cliente2, file);
 		jaxbMarshaller.marshal(customer, System.out);
 
 	      } catch (JAXBException e) {

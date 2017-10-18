@@ -16,35 +16,45 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Customer {
 
-	String name;
-	int age;
-	int id;
+    String name;
+    int age;
+    int id;
+    Cat miCat;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@XmlElement
-	public void setName(String name) {
-		this.name = name;
-	}
+    @XmlElement
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	@XmlElement
-	public void setAge(int age) {
-		this.age = age;
-	}
+    @XmlElement
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	@XmlAttribute
-	public void setId(int id) {
-		this.id = id;
-	}
+    @XmlAttribute
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Cat getMiCat() {
+        return miCat;
+    }
+
+    @XmlElement
+    public void setMiCat(Cat miCat) {
+        this.miCat = miCat;
+    }
 
 }
