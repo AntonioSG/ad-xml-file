@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *
  * @author Administrador
  */
+@XmlType(propOrder = {"listaTotalPersonas","listaTotalCoches"})
 @XmlRootElement(name = "parking") //opcional los parentesis y su contenido
 public class Parking {
 
@@ -28,11 +29,11 @@ public class Parking {
         listaTotalPersonas = new HashSet<>();
     }
     
-@XmlElement
+@XmlElement(name = "coche")
     public void setListaTotalCoches(HashSet<Coche> listaTotalCoches) {
         this.listaTotalCoches = listaTotalCoches;
     }
-@XmlElement
+@XmlElement(name = "persona")
     public void setListaTotalPersonas(HashSet<Persona> listaTotalPersonas) {
         this.listaTotalPersonas = listaTotalPersonas;
     }

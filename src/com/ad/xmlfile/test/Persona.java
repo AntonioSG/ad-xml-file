@@ -10,11 +10,14 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author asillero
  */
+@XmlRootElement
 public class Persona implements Serializable {
 
     private String nif;
@@ -37,6 +40,9 @@ public class Persona implements Serializable {
 
     }
 
+    public Persona() {
+    }
+
     public boolean addCoche(Coche c) {
         return misCoches.add(c);
     }
@@ -49,6 +55,7 @@ public class Persona implements Serializable {
         return nif;
     }
 
+    @XmlElement
     public void setNif(String nif) {
         if (nif == null) {
             throw new IllegalStateException("NIF no puede ser null");
@@ -60,6 +67,7 @@ public class Persona implements Serializable {
         return nombre;
     }
 
+    @XmlElement
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -68,6 +76,7 @@ public class Persona implements Serializable {
         return apellido1;
     }
 
+    @XmlElement
     public void setApellido1(String apellido1) {
         this.apellido1 = apellido1;
     }
@@ -76,6 +85,7 @@ public class Persona implements Serializable {
         return apellido2;
     }
 
+    @XmlElement
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
     }
@@ -84,6 +94,7 @@ public class Persona implements Serializable {
         return fechaNacimiento;
     }
 
+    @XmlElement(name="fecha-nacimiento")
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
@@ -92,6 +103,7 @@ public class Persona implements Serializable {
         return misCoches;
     }
 
+    @XmlElement(name="coche")
     public void setMisCoches(HashSet<Coche> misCoches) {
         this.misCoches = misCoches;
     }

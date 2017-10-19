@@ -8,11 +8,16 @@ package com.ad.xmlfile.test;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author asillero
  */
+@XmlType(propOrder = {"matricula","marca","modelo","color","fechaMatricula"})
+@XmlRootElement
 public class Coche implements Serializable {
 
     private String matricula;
@@ -32,10 +37,15 @@ public class Coche implements Serializable {
         this.color = color;
     }
 
+    public Coche() {
+    }
+    
+
     public String getMatricula() {
         return matricula;
     }
 
+    @XmlElement
     public void setMatricula(String matricula) {
         if (matricula == null) {
             throw new IllegalStateException("Matricula no puede ser null");
@@ -47,6 +57,7 @@ public class Coche implements Serializable {
         return marca;
     }
 
+    @XmlElement
     public void setMarca(String marca) {
         this.marca = marca;
     }
@@ -55,6 +66,7 @@ public class Coche implements Serializable {
         return modelo;
     }
 
+    @XmlElement
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
@@ -63,6 +75,7 @@ public class Coche implements Serializable {
         return fechaMatricula;
     }
 
+    @XmlElement(name="fecha-matricula")
     public void setFechaMatricula(Date fechaMatricula) {
         this.fechaMatricula = fechaMatricula;
     }
@@ -71,6 +84,7 @@ public class Coche implements Serializable {
         return color;
     }
 
+    @XmlElement
     public void setColor(String color) {
         this.color = color;
     }
