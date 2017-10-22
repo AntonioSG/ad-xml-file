@@ -122,36 +122,7 @@ public class WriteParkingXML {
 		e.printStackTrace();
 	  }
         
-//        HashSet<Persona> nuevaListaPersonas = new HashSet<>();
-//        HashSet<Coche> nuevaListaCoches = new HashSet<>();
-//
-//        System.out.println(
-//                "Leo fichero de objetos.");
-//
-//        try {
-//            fpo.leeFicheroObjetos(null, nuevaListaPersonas, nuevaListaCoches);
-//        } catch (Exception ex) {
-//            Logger.getLogger(WriteParkingXML.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        System.out.println(
-//                "Datos leidos del fichero:");
-//
-//        it = nuevaListaPersonas.iterator();
-//
-//        while (it.hasNext()) {
-//            System.out.println(it.next().toString());
-//
-//        }
-//
-//        System.out.println(
-//                "Listado coches: \n");
-//        it = nuevaListaCoches.iterator();
-//
-//        while (it.hasNext()) {
-//            System.out.println(it.next().toString());
-//
-//        }
+
 
     }
 }

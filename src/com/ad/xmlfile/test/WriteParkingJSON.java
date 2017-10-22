@@ -8,14 +8,17 @@ package com.ad.xmlfile.test;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.MarshallerProperties;
 import org.eclipse.persistence.jaxb.UnmarshallerProperties;
 
@@ -97,69 +100,42 @@ public class WriteParkingJSON {
 
         }
 
-        System.out.println("Grabo fichero XML.");
+        System.out.println("Grabo fichero JSOM.");
         try {
 
             File file = new File("parking.json");
-            JAXBContext jaxbContext = JAXBContext.newInstance(Parking.class);
+
+//            JAXBContext jaxbContext = JAXBContext.newInstance(Parking.class); //requiere el uso del fichero jaxb.properties en el mismo directorio de las clases
+            JAXBContext jaxbContext = JAXBContextFactory.createContext(new Class[]{Parking.class}, null);
+
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             // output pretty printed
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             jaxbMarshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
-            jaxbMarshaller.setProperty(MarshallerProperties.MEDIA_TYPE,"application/json");
-            
+            jaxbMarshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+
             jaxbMarshaller.marshal(park, file);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        System.out.println("Leo fichero XML.");
-       /* try {
+        System.out.println("Leo fichero JSON.");
+        try {
 
-		File file = new File("parking.json");
-		JAXBContext jaxbContext = JAXBContext.newInstance(Parking.class);
+            File file = new File("parking.json");
+//            JAXBContext jaxbContext = JAXBContext.newInstance(Parking.class); //requiere el uso del fichero jaxb.properties en el mismo directorio de las clases
+            JAXBContext jaxbContext = JAXBContextFactory.createContext(new Class[]{Parking.class}, null);
 
-		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                jaxbUnmarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE,"application/json");
-                jaxbUnmarshaller.setProperty(UnmarshallerProperties.JSON_INCLUDE_ROOT, true);
-                
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            jaxbUnmarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE, "application/json");
+            jaxbUnmarshaller.setProperty(UnmarshallerProperties.JSON_INCLUDE_ROOT, true);
+
 		Parking park2 = (Parking) jaxbUnmarshaller.unmarshal(file);
-		System.out.println(park2.toString());
+            System.out.println(park2.toString());
 
-	  } catch (JAXBException e) {
-		e.printStackTrace();
-	  }*/
-        
-//        HashSet<Persona> nuevaListaPersonas = new HashSet<>();
-//        HashSet<Coche> nuevaListaCoches = new HashSet<>();
-//
-//        System.out.println(
-//                "Leo fichero de objetos.");
-//
-//        try {
-//            fpo.leeFicheroObjetos(null, nuevaListaPersonas, nuevaListaCoches);
-//        } catch (Exception ex) {
-//            Logger.getLogger(WriteParkingXML.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        System.out.println(
-//                "Datos leidos del fichero:");
-//
-//        it = nuevaListaPersonas.iterator();
-//
-//        while (it.hasNext()) {
-//            System.out.println(it.next().toString());
-//
-//        }
-//
-//        System.out.println(
-//                "Listado coches: \n");
-//        it = nuevaListaCoches.iterator();
-//
-//        while (it.hasNext()) {
-//            System.out.println(it.next().toString());
-//
-//        }
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
 
     }
 }
